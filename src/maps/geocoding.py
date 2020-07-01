@@ -15,6 +15,8 @@ Easy use -->
 import googlemaps
 from datetime import datetime
 
+from DI import ENV
+
 class Gmaps:
   def __init__(self, key):
     self.gmaps = googlemaps.Client(key=key)
@@ -30,6 +32,6 @@ class Gmaps:
 
 
 if __name__ == '__main__':
-  o_gmaps = Gmaps('')
+  o_gmaps = Gmaps(ENV.GMAPS_API_TWO)
 
   print(o_gmaps.latlongToAddress("Centro"))

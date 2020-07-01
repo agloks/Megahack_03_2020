@@ -1,9 +1,12 @@
 import pymongo 
-  
+import sys  
+
+from DI import ENV
+
 class Atlas():
   def __init__(self):
     # Replace your URL here. Don't forget to replace the password. 
-    connection_uri = ''
+    connection_uri = ENV.ATLAS_URI
     client = pymongo.MongoClient(connection_uri) 
     self.database = client.get_database('sample_restaurants')
     #database have all collection inside as property, so to acess the collection wich we want, only pass the name them exactly as property
