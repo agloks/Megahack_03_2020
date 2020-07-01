@@ -24,13 +24,22 @@ To receive is by callback in webhook, we need make a POST route to the callback
 import json
 import requests
 
-url = 'https://somedomain.com'
+from DI import ENV
+
+url = 'https://api.zenvia.com/v1/channels/whatsapp/messages'
 body = {
-  'name': 'Maryja'
-  }
+  'from': ENV.SENDER_ID,
+  'to': ENV.RECIPIENT_TEST,
+  'contents': [{
+    'type': 'text',
+    'text': 'Hey Bro!!'
+  }]
+}
 headers = {
   'content-type': 'application/json',
-  'X-API-TOKEN': 'YOUR_API_TOKEN'
-  }
+  'X-API-TOKEN': ENV.WHATSAPP_API
+}
 
 r = requests.post(url, data=json.dumps(body), headers=headers)
+
+print(r)
