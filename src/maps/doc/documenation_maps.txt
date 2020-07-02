@@ -31,6 +31,8 @@
                   Possible values are: prominence (default), distance
   :type rank_by: string
 
+  :param language: https://developers.google.com/maps/faq#languagesupport
+  
   :rtype: result dict with the following keys:
           status: status code
           results: list of places
