@@ -30,11 +30,17 @@ class Gmaps:
     self.gmaps = googlemaps.Client(key=key)
   
   def latlongToAddress(self, address=None):
-    if(not address):
+    if(address == None):
       return "missing address" 
       
-    geocode_result = self.gmaps.geocode(address)      
-    return geocode_result
+    geocode_result = self.gmaps.geocode(address)
+
+    result = {
+      "lat": geocode_result[0]["geometry"]["location"]["lat"],
+      "long": geocode_result[0]["geometry"]["location"]["lng"]
+    }
+
+    return result
 
   def placeNearby(self, location, radius=None, p_type="restaurant", language="pt-BR", rank_by="distance"):
     '''
@@ -78,14 +84,19 @@ class Gmaps:
 
     OBS:
       1) not is able to use at same time rank_by and radius, only one must be choice
+      2) vicinity property have possible to coming with few information, in this case let go doing regex to take just whether has some number
     '''
     # place_nearby_result = self.gmaps.places(location=location, query="boate", language=language)
     place_nearby_result = None
 
-    if(not radius):
+    if(radius != None):
       place_nearby_result = self.gmaps.places_nearby(location=location, radius=radius, type=p_type, language=language)
     else:
       place_nearby_result = self.gmaps.places_nearby(location=location, type=p_type, rank_by=rank_by, language=language)
+
+    #check if the response have been success
+    if(place_nearby_result["status"] != "OK"):
+      return -1
 
     return place_nearby_result
 
@@ -94,19 +105,36 @@ class UtensilMaps(Gmaps):
   def __init__(self, key):
     super().__init__(key)
 
-  def topFiveNearbyFoodPlace(self, location):
-    if(not location):
-      return "missing location"
+  def topFiveNearbyFoodPlace(self, address):
+    if(address == None):
+      return "missing address"
 
-    return self.gmaps
+    #1) convert adress to lat-long
+    coordinates = self.latlongToAddress(address=address)
+    tuple_coordinates = (coordinates["lat"], coordinates["long"])
+    
+    #2) obtatin results with more closer
+    nearby_restaurants = self.placeNearby(location=(tuple_coordinates)) 
+
+    #3) take only five
+    result = nearby_restaurants["results"][0:4] if nearby_restaurants != -1 else -1
+
+    return result
      
 
 
 if __name__ == '__main__':
+  import json
+
   # gmaps = Gmaps(ENV.GMAPS_API_TWO)
 
-  # print(gmaps.latlongToAddress("Avenida Paulista, SP"))
-  # print(gmaps.placeNearby(location=(-23.5525567, -46.64398449999999), radius=30, p_type="restaurant", rank_by="distance"))
-
+  # geocoding_result_test = gmaps.latlongToAddress("Avenida Paulista, SP")
+  # print(geocoding_result_test)
+  # place_nearby_result_test = gmaps.placeNearby(location=(-23.5525567, -46.64398449999999), radius=30, p_type="restaurant", rank_by="distance")
+  # with open("place_nearby_response.json", "w+") as file:
+    # json.dump(place_nearby_result_test, file) # encode dict into JSON
+  # with open("geocoding_response.json", "w+") as file:
+    # json.dump(geocoding_result_test, file) # encode dict into JSON
+  
   utensilMaps = UtensilMaps(ENV.GMAPS_API_TWO)
   print(utensilMaps.topFiveNearbyFoodPlace("Avenida Paulista, SP"))
