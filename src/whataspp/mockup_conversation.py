@@ -1,7 +1,7 @@
 import re
 import time
 
-from .DI import handlerJson
+from DI import handlerJson
 
 def stage_0(name):
   return f'''
@@ -26,6 +26,25 @@ def stage_1(action):
 
         Exemplo: Rua Santo Antonio, 601 - Bela Vista, São Paulo
       '''
+
+def stage_2():
+  return f'''
+    Deseja alguma recomendação minha ou somente os mais próximos?
+ 
+    1) recomendação
+    2) próximos
+    '''
+
+def stage_3(action):
+  if((action == "1") or (action == "recomendação")):
+    return f'''
+      Legal, deixe comigo só vou trazer os melhores
+      '''
+  if((action == "2") or (action == "próximos")):
+    return f'''
+      Legal, deixe comigo só vou trazer os mais próximos...
+      '''
+      
 #generic response to handle with commands not was able to understand
 def unknow_response(commands):
   
@@ -35,7 +54,7 @@ def unknow_response(commands):
     {commands}
   '''
 
-def fakeCache(data):
+def isCached(data):
   '''
   :rtype: True = it's cached
           False = it's not cached
@@ -43,7 +62,8 @@ def fakeCache(data):
   time_min = time.gmtime().tm_min
   diff_time_min = int(data["time_min"]) - time_min
   
-  if(diff_time_min > 5):
+  #minutes scale
+  if(diff_time_min > 2):
     return False
 
   return True
@@ -59,6 +79,10 @@ class PhasesConversation:
       "phaseStagePerson": 0 
     }
     self.phase_stage = 0
+    self.commands = f'''
+        1) Recomendação
+        2) Próximos
+      '''
 
   def _updateStage(self, level):
     self.phase_stage = level
@@ -75,20 +99,48 @@ class PhasesConversation:
     pattern = re.compile(".*((?P<number>1|2)|(?P<command>ajuda|comer))", re.I | re.M)
     #set to not take duplicate of the same word
     regex_result = pattern.match(self.text)
+    
+    self.commands = f'''
+      1) Ajuda
+      2) Comer
+    '''
 
     if(regex_result == None):
-      commands = f'''
-        1) ajuda
-        2) comer
-      '''
-      unknow_response(commands)
+      unknow_response(self.commands)
       return -1
 
     #taking the result obtained from regex_result, which will only one command that not was None
-    action = [item for item in regex_result.groupdict().values() if item != None][0]
-    self._updateStage(2)
+    action = [item for item in regex_result.groupdict().values() if item != None][0].lower()
+    if((action == "2") or (action == "comer")):
+      self._updateStage(2)
 
     return stage_1(action)
+
+  def phase_2(self):
+    self.data_to_cache["endereco"] = self.text
+    self._updateStage(3)
+    return stage_2()
+
+  def phase_3(self):
+    pattern = re.compile(".*((?P<number>1|2|3)|(?P<command>recomendação|próximos))", re.I | re.M)
+    #set to not take duplicate of the same word
+    regex_result = pattern.match(self.text)
+    
+    self.commands = f'''
+      1) Recomendação
+      2) Próximos
+    '''
+
+    if(regex_result == None):
+      return unknow_response(self.commands)
+
+    #taking the result obtained from regex_result, which will only one command that not was None
+    action = [item for item in regex_result.groupdict().values() if item != None][0].lower()
+    possibles_commands_list = ["1", "2", "recomendação", "próximos"]
+    if(not action in possibles_commands_list):
+      return unknow_response(self.commands)
+      
+    return stage_3(action)
 
 class HandlerConversation(PhasesConversation):
   def __init__(self, name, phone, text):
@@ -101,26 +153,33 @@ class HandlerConversation(PhasesConversation):
     #must to ben run at root folder project
     data_cached = handlerJson.loadJson("./temp/", self.phone)
     if(data_cached):
+      #if it overcome the limit of the 2 min without update, reset the stage
+      if(not isCached(data_cached)):
+        self._updateStage(0)
       self.phase_stage = data_cached["phaseStagePerson"]
 
     phases = {
       0: self.phase_0,
       1: self.phase_1,
+      2: self.phase_2,
+      3: self.phase_3
     }
 
     try:
       return phases[self.phase_stage]()
     except Exception as e:
-      commands = f'''
-        1) ajuda
-        2) comer
-      '''
-      return unknow_response(commands)
+      return unknow_response(self.commands)
 
 if __name__ == '__main__':
 
-  handlerConversation = HandlerConversation("Amanda", "551195069324", "Eu queor uma comer")
-  # test_result = handlerConversation.phase_1("Eu queor uma comer")
+  conversation_test_one = [
+    "oi",
+    "Eu queor uma comer",
+    "Cambuci, São Paulo",
+    "Próximos"
+  ]
 
-  # print(test_result)
-  print(handlerConversation.run())
+  for text in conversation_test_one:
+    handlerConversation = HandlerConversation("Amanda", "551195069324", text)
+    time.sleep(1)
+    print(handlerConversation.run())
