@@ -6,3 +6,4 @@ file_directory_splited = file_directory.split("/")
 root_folder = "/".join(file_directory_splited[:-3])
 
 ENV = SourceFileLoader("ENV", f"{root_folder}/settings_env.py").load_module()
+handlerJson = SourceFileLoader("handlerJson", f"{root_folder}/src/utility/handlerJson.py").load_module()

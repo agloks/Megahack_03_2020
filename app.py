@@ -54,6 +54,7 @@ def listenerMessage():
   print("[listenerMessage] Receveing message...")
   receveid = request.get_json()
   name_people = None
+  number_people = None
   text_message = None
 
   #0)Check request: 
@@ -70,6 +71,7 @@ def listenerMessage():
   #2)handle with the message
   try:
     name_people = receveid["message"]["visitor"]["name"]
+    number_people = receveid["message"]["from"]
     text_message = receveid["message"]["contents"][1]["text"]
   except Exception as e:
     print("[ERROR #2 /API/V1/listenerMessage/]")
@@ -78,8 +80,10 @@ def listenerMessage():
 
   #3)handle return response
   try:
-    text_response = mockup_conversation.stage_0(name_people)
-    whastapp_api.response_to(text_response, "5511985063850")
+    handlerConversation = mockup_conversation.HandlerConversation(name_people, number_people, text_message)
+    text_response = handlerConversation.run()
+    
+    whastapp_api.response_to(text_response, number_people)
   except Exception as e:
     print("[ERROR #3 /API/V1/listenerMessage/]")
     print(e)

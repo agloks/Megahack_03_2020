@@ -33,7 +33,6 @@ def response_to(text, number):
 
   :param number: The client's number with the following format : 5511962049178
   :type number: string
-
   '''
   url = 'https://api.zenvia.com/v1/channels/whatsapp/messages'
   body = {
@@ -50,13 +49,11 @@ def response_to(text, number):
   }
 
   result = requests.post(url, data=json.dumps(body), headers=headers)
-
   return result.json()
 
 if __name__ == '__main__':
 
   text_to_send = "Incrivel"
-
   response_to_test = response_to(text_to_send, "5511985063850")
 
   print(response_to_test)
