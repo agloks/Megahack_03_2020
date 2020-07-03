@@ -26,20 +26,37 @@ import requests
 
 from DI import ENV
 
-url = 'https://api.zenvia.com/v1/channels/whatsapp/messages'
-body = {
-  'from': ENV.SENDER_ID,
-  'to': ENV.RECIPIENT_TEST,
-  'contents': [{
-    'type': 'text',
-    'text': 'Hey Bro!!'
-  }]
-}
-headers = {
-  'content-type': 'application/json',
-  'X-API-TOKEN': ENV.WHATSAPP_API
-}
+def response_to(text, number):
+  '''
+  :param text: The text to response to the client
+  :type text: string
 
-r = requests.post(url, data=json.dumps(body), headers=headers)
+  :param number: The client's number with the following format : 5511962049178
+  :type number: string
 
-print(r)
+  '''
+  url = 'https://api.zenvia.com/v1/channels/whatsapp/messages'
+  body = {
+    'from': ENV.SENDER_ID,
+    'to': number,
+    'contents': [{
+      'type': 'text',
+      'text': text
+    }]
+  }
+  headers = {
+    'content-type': 'application/json',
+    'X-API-TOKEN': ENV.WHATSAPP_API
+  }
+
+  result = requests.post(url, data=json.dumps(body), headers=headers)
+
+  return result.json()
+
+if __name__ == '__main__':
+
+  text_to_send = "Incrivel"
+
+  response_to_test = response_to(text_to_send, "5511985063850")
+
+  print(response_to_test)

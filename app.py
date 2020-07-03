@@ -12,7 +12,6 @@ app.config['SECRET_KEY'] = 'time21'
 
 #ONLY FOR DEVELOPMENT
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
-app.jinja_env.auto_reload = True
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 db_name = 'mydb'
