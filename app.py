@@ -4,6 +4,9 @@ import atexit
 import os
 import json
 
+
+from src.whataspp import mockup_conversation, whastapp_api
+
 #####################################################################################################
 
 app = Flask(__name__)
@@ -49,15 +52,37 @@ port = int(os.getenv('PORT', 8000))
 @app.route("/API/V1/listenerMessage/", methods=['POST'])
 def listenerMessage():
   print("[listenerMessage] Receveing message...")
-  receveid = request.data
-  if( (receveid["direction"] != "IN") and (receveid["channel"] != "whatsapp") ):
+  receveid = request.get_json()
+  name_people = None
+  text_message = None
+
+  #0)Check request: 
+  try:
+    if( (receveid["direction"] != "IN") and (receveid["channel"] != "whatsapp") ):
       return jsonify({"Status": "Invalid Request"}), 400
+  except Exception as e:
+    print("[ERROR #0 /API/V1/listenerMessage/]")
+    print(e)
+    return jsonify({"Status": "Invalid Request"}), 400
 
   #1)TODO: save the data
   
   #2)handle with the message
-  name_people = receveid["message"]["visitor"]["name"]
-  text_message = receveid["message"]["contents"][1]["text"]
+  try:
+    name_people = receveid["message"]["visitor"]["name"]
+    text_message = receveid["message"]["contents"][1]["text"]
+  except Exception as e:
+    print("[ERROR #2 /API/V1/listenerMessage/]")
+    print(e)
+    return jsonify({"Status": "Invalid Request"}), 400
+
+  #3)handle return response
+  try:
+    text_response = mockup_conversation.stage_0(name_people)
+    whastapp_api.response_to(text_response, "5511985063850")
+  except Exception as e:
+    print("[ERROR #3 /API/V1/listenerMessage/]")
+    print(e)
 
   return receveid, 200
 
