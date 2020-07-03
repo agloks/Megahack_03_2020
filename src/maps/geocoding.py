@@ -21,6 +21,7 @@ Easy use -->
 '''
 
 import googlemaps
+import re
 from datetime import datetime
 
 from DI import ENV
@@ -114,10 +115,16 @@ class UtensilMaps(Gmaps):
     tuple_coordinates = (coordinates["lat"], coordinates["long"])
     
     #2) obtatin results with more closer
-    nearby_restaurants = self.placeNearby(location=(tuple_coordinates)) 
+    nearby_restaurants = self.placeNearby(location=tuple_coordinates) 
+    if(nearby_restaurants == -1):
+      return -1
 
-    #3) take only five
-    result = nearby_restaurants["results"][0:4] if nearby_restaurants != -1 else -1
+    #3) vicinity property have possible to coming with few information, in this case let go doing regex to take just whether has some number
+    pattern = re.compile(".*\s\d+\s")
+    nearby_restaurants = [document for document in nearby_restaurants["results"] if pattern.match(document["vicinity"]) != None]
+    
+    #4) only top five results
+    result = nearby_restaurants[0:4]
 
     return result
      

@@ -49,13 +49,22 @@ port = int(os.getenv('PORT', 8000))
 @app.route("/API/V1/listenerMessage/", methods=['POST'])
 def listenerMessage():
   print("[listenerMessage] Receveing message...")
-  print(request.data)
-  return request.data, 200
+  receveid = request.data
+  if( (receveid["direction"] != "IN") and (receveid["channel"] != "whatsapp") ):
+      return jsonify({"Status": "Invalid Request"}), 400
+
+  #1)TODO: save the data
+  
+  #2)handle with the message
+  name_people = receveid["message"]["visitor"]["name"]
+  text_message = receveid["message"]["contents"][1]["text"]
+
+  return receveid, 200
 
 @app.route('/', methods=['GET'])
 def index():
     data = jsonify({"Status": "Success"})
-    return data, 201
+    return data, 200
 
 @atexit.register
 def shutdown():
