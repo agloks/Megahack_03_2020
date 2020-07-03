@@ -4,6 +4,9 @@ import atexit
 import os
 import json
 
+
+from src.whataspp import mockup_conversation, whastapp_api
+
 #####################################################################################################
 
 app = Flask(__name__)
@@ -12,7 +15,6 @@ app.config['SECRET_KEY'] = 'time21'
 
 #ONLY FOR DEVELOPMENT
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
-app.jinja_env.auto_reload = True
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 db_name = 'mydb'
@@ -50,13 +52,44 @@ port = int(os.getenv('PORT', 8000))
 @app.route("/API/V1/listenerMessage/", methods=['POST'])
 def listenerMessage():
   print("[listenerMessage] Receveing message...")
-  print(request.data)
-  return request.data, 200
+  receveid = request.get_json()
+  name_people = None
+  text_message = None
+
+  #0)Check request: 
+  try:
+    if( (receveid["direction"] != "IN") and (receveid["channel"] != "whatsapp") ):
+      return jsonify({"Status": "Invalid Request"}), 400
+  except Exception as e:
+    print("[ERROR #0 /API/V1/listenerMessage/]")
+    print(e)
+    return jsonify({"Status": "Invalid Request"}), 400
+
+  #1)TODO: save the data
+  
+  #2)handle with the message
+  try:
+    name_people = receveid["message"]["visitor"]["name"]
+    text_message = receveid["message"]["contents"][1]["text"]
+  except Exception as e:
+    print("[ERROR #2 /API/V1/listenerMessage/]")
+    print(e)
+    return jsonify({"Status": "Invalid Request"}), 400
+
+  #3)handle return response
+  try:
+    text_response = mockup_conversation.stage_0(name_people)
+    whastapp_api.response_to(text_response, "5511985063850")
+  except Exception as e:
+    print("[ERROR #3 /API/V1/listenerMessage/]")
+    print(e)
+
+  return receveid, 200
 
 @app.route('/', methods=['GET'])
 def index():
     data = jsonify({"Status": "Success"})
-    return data, 201
+    return data, 200
 
 @atexit.register
 def shutdown():

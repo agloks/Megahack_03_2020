@@ -1,0 +1,36 @@
+{
+  "id": "558570fe-e397-4470-bc56-aff9d6d24cc2",
+  "timestamp": "2020-07-03T01:57:05.806Z",
+  "type": "MESSAGE",
+  "subscriptionId": "b7980fbd-4042-4729-8117-ec77ad7d7020",
+  "channel": "whatsapp",
+  "direction": "IN",
+  "message": {
+    "id": "b2421443-ea53-4718-8016-85aa5477d155",
+    "from": "5511962049178",
+    "to": "h-p",
+    "direction": "IN",
+    "channel": "whatsapp",
+    "visitor": {
+      "name": "Pedro Henrique",
+      "firstName": "Pedro",
+      "lastName": "Henrique"
+    },
+    "contents": [
+      {
+        "type": "json",
+        "payload": {
+          "visitor": {
+            "name": "Pedro Henrique",
+            "firstName": "Pedro",
+            "lastName": "Henrique"
+          }
+        }
+      },
+      {
+        "type": "text",
+        "text": "Iuuuuhhh"
+      }
+    ]
+  }
+}'

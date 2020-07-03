@@ -1,0 +1,921 @@
+{
+  "html_attributions": [],
+  "next_page_token": "CrQCIQEAAFQu-zD2ExVY2kTCCS3C8gZxkBMcvC9sdoQHk4G3PV24kK0d-UtI6OfIGVieJs_v9cYJcYcyWmRB0hsdwkgc7iFeEqiUtNTxt5tyg-0nlZM5_FDVYSZWK9eQzy31Qj1--OjfOqPxrLo59kkumrxDXr9N-0N-IwEVwP4NZce56q7VwwWpINF4AEvClT6m2AaCvVrTQPWNqcIFHPd6GaxC6D4G5J88A38AnwElYUlTUimXe2FO_gKZJv0hjRwZzw-qYI7CaEHJin01ULqAIHQzkW-q5WfGcBjVTkgQcQlfu4QH0P4Nb8eVxn5blS2dQ9PQ_Oo-ymURnVbmn0qlfWf181My2rARDPEdcu6Es6FNvLb4J-Mz9Gw0g3kLvdl8hmJbQmaVFOgdu7tWPTdtLBc6proSEM2hlbeD_UYu3W6c7Cko5aQaFFBbG7yQTF7HqGJXKq_4DlmYRrVv",
+  "results": [
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -23.5527108,
+          "lng": -46.6441559
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -23.5513981697085,
+            "lng": -46.6428034697085
+          },
+          "southwest": {
+            "lat": -23.55409613029151,
+            "lng": -46.6455014302915
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "ef804cc640e6f5d456d1e753c43affb530579a4b",
+      "name": "Andre S.E.P",
+      "place_id": "ChIJp2l5H7NZzpQRaY50Zf1ntyQ",
+      "plus_code": {
+        "compound_code": "C9W4+W8 S\u00e3o Paulo, SP, Brasil",
+        "global_code": "588MC9W4+W8"
+      },
+      "reference": "ChIJp2l5H7NZzpQRaY50Zf1ntyQ",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "S\u00e3o Paulo"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -23.5525997,
+          "lng": -46.6432232
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -23.5512546697085,
+            "lng": -46.64191896970851
+          },
+          "southwest": {
+            "lat": -23.5539526302915,
+            "lng": -46.64461693029151
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "9d905303ef98fc3cc4daec014da508f620fe70d5",
+      "name": "Bar e Restaurante Gonga",
+      "opening_hours": {
+        "open_now": true
+      },
+      "place_id": "ChIJ9evy6LJZzpQRNuJ1s868usk",
+      "plus_code": {
+        "compound_code": "C9W4+XP Bela Vista, S\u00e3o Paulo - SP, Brasil",
+        "global_code": "588MC9W4+XP"
+      },
+      "rating": 3.8,
+      "reference": "ChIJ9evy6LJZzpQRNuJ1s868usk",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "meal_takeaway",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 4,
+      "vicinity": "Rua Major Diogo, 167 - Bela Vista, S\u00e3o Paulo"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -23.5520027,
+          "lng": -46.6435095
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -23.5506476697085,
+            "lng": -46.6420932197085
+          },
+          "southwest": {
+            "lat": -23.5533456302915,
+            "lng": -46.6447911802915
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "6192f2bbdfea674edf9348cfa9299de02a571f12",
+      "name": "Enzo",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3264,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/106185102813631807338\">Luiz Otavio Supriano</a>"
+          ],
+          "photo_reference": "CmRaAAAAJptS5v2xj_9v4qjp5xzPwZ8o-lGOkuR886_6Rpf4XZK5rgbdsvVLQzgrIy4o6v3pOLmjSbEXm0xGRm6jpTNSotYdEX80XFjrp6zDcuCNsQ9MvdMIhX0LrhCimOhebYrmEhAZYSmdU0MvhScSUwC_KpDKGhQBMF1Q8azN4BSfWbDGF9DBH19bDg",
+          "width": 1836
+        }
+      ],
+      "place_id": "ChIJHQrH2rJZzpQRHmPUz4iHmHA",
+      "plus_code": {
+        "compound_code": "C9X4+5H Bela Vista, S\u00e3o Paulo - SP, Brasil",
+        "global_code": "588MC9X4+5H"
+      },
+      "price_level": 1,
+      "rating": 4.2,
+      "reference": "ChIJHQrH2rJZzpQRHmPUz4iHmHA",
+      "scope": "GOOGLE",
+      "types": [
+        "meal_takeaway",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 52,
+      "vicinity": "Rua Major Diogo, 98 - Bela Vista, S\u00e3o Paulo"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -23.5527503,
+          "lng": -46.64320610000001
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -23.5514055697085,
+            "lng": -46.6419026197085
+          },
+          "southwest": {
+            "lat": -23.5541035302915,
+            "lng": -46.6446005802915
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "5809ad8b580816157c5aa4e12b6a1a20b02e4f0a",
+      "name": "Esquina do Major",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 4128,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/106069060060114423882\">Rondinelli Alves</a>"
+          ],
+          "photo_reference": "CmRaAAAAwRi6IspqSd2x9l76ykbLsTMhb-5aUla3ZSk6y_k2G_F58-GjXL2qlWc0VsV7GN75EYeWYGDAmg6IuK7HUtiOF5jUgziC5xgWg7dKugrZKNAm0qyeknPbyHpxhWZJZ7fIEhCQUje5JBktkkbdHTe_Q531GhTr97Xl2At8XQn5zhyZaXtivVZe5Q",
+          "width": 3096
+        }
+      ],
+      "place_id": "ChIJ8-kv77JZzpQR8-gVWG4hZ4c",
+      "plus_code": {
+        "compound_code": "C9W4+VP Bela Vista, S\u00e3o Paulo - SP, Brasil",
+        "global_code": "588MC9W4+VP"
+      },
+      "rating": 3.9,
+      "reference": "ChIJ8-kv77JZzpQR8-gVWG4hZ4c",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 35,
+      "vicinity": "Rua Major Diogo, 187 - Bela Vista, S\u00e3o Paulo"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -23.552529,
+          "lng": -46.643062
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -23.5512648697085,
+            "lng": -46.6417008197085
+          },
+          "southwest": {
+            "lat": -23.55396283029151,
+            "lng": -46.6443987802915
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "9e9dc7bbccb1548ee4280bf3841cfff1575a2b0a",
+      "name": "Pizzaria Bella Napoli",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 764,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109254637422733181882\">Pizzaria Bella Napoli</a>"
+          ],
+          "photo_reference": "CmRaAAAAD-pfPCSDn2tCyzdcsk2-Wu2UuFGSY9phkPweQ5oY7rlGTIUVVIWDC_4Ex-Wt9j4fssOzScBJqmzguMoeEDudntH50L4uVTDzCu-kwmP6_FoWLmYU88SGam4JkYudC9otEhDUHFED9leW4muPPCchw_N_GhSl0JwKcCiJyJLPwf13tzrSxjeVUQ",
+          "width": 1146
+        }
+      ],
+      "place_id": "ChIJoaNr7LJZzpQRHdkujlC1wKI",
+      "plus_code": {
+        "compound_code": "C9W4+XQ Bela Vista, S\u00e3o Paulo - SP, Brasil",
+        "global_code": "588MC9W4+XQ"
+      },
+      "price_level": 2,
+      "rating": 4.2,
+      "reference": "ChIJoaNr7LJZzpQRHdkujlC1wKI",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 149,
+      "vicinity": "Rua S\u00e3o Domingos, 84 - Bela Vista, S\u00e3o Paulo"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -23.5531342,
+          "lng": -46.64314629999999
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -23.5517906697085,
+            "lng": -46.6418481197085
+          },
+          "southwest": {
+            "lat": -23.5544886302915,
+            "lng": -46.6445460802915
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "00a8c4d81439a6a251a275d375906f344c60f3b9",
+      "name": "Churrascaria MACCENTER",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 1836,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/105179270452064667191\">Churrascaria MACCENTER</a>"
+          ],
+          "photo_reference": "CmRaAAAAwVSjIVU_tZl9xg1xihfkbbkCcai4wkpULyu-k5zTZ7LBsLZfLdWaautncIQ63SZJCY4TW49hiDP0wyrfx40BK8pehdQq93YL9G96XvgZp2diXF_H9-3M_3qTr11_HkLAEhCBtR-yMHp27WF2gvQYq2xsGhS8sfz3CtOeA_kZKnX4C_4hqbdocA",
+          "width": 3264
+        }
+      ],
+      "place_id": "ChIJfQl18bJZzpQRwL8XWJKFhNE",
+      "plus_code": {
+        "compound_code": "C9W4+PP Bela Vista, S\u00e3o Paulo - SP, Brasil",
+        "global_code": "588MC9W4+PP"
+      },
+      "rating": 4.1,
+      "reference": "ChIJfQl18bJZzpQRwL8XWJKFhNE",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 20,
+      "vicinity": "Rua Major Diogo, 227 - Bela Vista, S\u00e3o Paulo"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -23.5515004,
+          "lng": -46.6441785
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -23.5501088697085,
+            "lng": -46.64284996970849
+          },
+          "southwest": {
+            "lat": -23.5528068302915,
+            "lng": -46.64554793029149
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "08b5984602fb69e2daefe834e98cc818fef552a8",
+      "name": "O Ga\u00facho Bar e Restaurante",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3024,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/117966453379411786018\">Felipe Lima</a>"
+          ],
+          "photo_reference": "CmRaAAAA9LJUOnfjwn5tBO3tm-EYIikYo0HbHlm6pi98XVaA60v90b00ZhBTQSfj4Z0dzfq5xkoTXuBX-HMVzPs8AVXWANVyg5ZrAlq5FDFlVSwL1o_0wxfmYOHmWSySs6yFj4dbEhAN6NTUrg54xh4iP4NkADGiGhQ2e8j042dR8Bhitnjxmxx1SIstpQ",
+          "width": 4032
+        }
+      ],
+      "place_id": "ChIJJebE1ExYzpQRTt7cBe9y3sA",
+      "plus_code": {
+        "compound_code": "C9X4+98 Bela Vista, S\u00e3o Paulo - SP, Brasil",
+        "global_code": "588MC9X4+98"
+      },
+      "rating": 3,
+      "reference": "ChIJJebE1ExYzpQRTt7cBe9y3sA",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "bar",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1,
+      "vicinity": "Rua Santo Ant\u00f4nio, 601 - Bela Vista, S\u00e3o Paulo"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -23.5534298,
+          "lng": -46.6432876
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -23.5520768197085,
+            "lng": -46.6419011697085
+          },
+          "southwest": {
+            "lat": -23.5547747802915,
+            "lng": -46.6445991302915
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "2bf2f23b48cf7caede29e841656b519fb7145b83",
+      "name": "Pizzaria Forbes",
+      "opening_hours": {
+        "open_now": false
+      },
+      "place_id": "ChIJKa49D6tZzpQROydf7uA7JF8",
+      "plus_code": {
+        "compound_code": "C9W4+JM Bela Vista, S\u00e3o Paulo - SP, Brasil",
+        "global_code": "588MC9W4+JM"
+      },
+      "rating": 5,
+      "reference": "ChIJKa49D6tZzpQROydf7uA7JF8",
+      "scope": "GOOGLE",
+      "types": [
+        "meal_takeaway",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 2,
+      "vicinity": "Rua Major Diogo, 260 - Bela Vista, S\u00e3o Paulo"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -23.5534298,
+          "lng": -46.6432876
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -23.5520768197085,
+            "lng": -46.6419011697085
+          },
+          "southwest": {
+            "lat": -23.5547747802915,
+            "lng": -46.6445991302915
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "c2b82f00a6dc48d86faae5fe6156c6cecf1b2cf5",
+      "name": "Quinino Pizzaria",
+      "place_id": "ChIJB4856-ZZzpQRVfHB1-Vd6i8",
+      "plus_code": {
+        "compound_code": "C9W4+JM Bela Vista, S\u00e3o Paulo - SP, Brasil",
+        "global_code": "588MC9W4+JM"
+      },
+      "reference": "ChIJB4856-ZZzpQRVfHB1-Vd6i8",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "Rua Major Diogo, 260 - Bela Vista, S\u00e3o Paulo"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -23.5514899,
+          "lng": -46.6441813
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -23.5501036197085,
+            "lng": -46.6428513697085
+          },
+          "southwest": {
+            "lat": -23.5528015802915,
+            "lng": -46.6455493302915
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "22d5b03a3670a313fb86797273ac0688a4a9902b",
+      "name": "Sant'Ant\u00f4nio",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 809,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/112339940212826626871\">Sant&#39;Ant\u00f4nio</a>"
+          ],
+          "photo_reference": "CmRaAAAAL-8lai7hYedaRPO3dEGDCu4McCboWkob8JS2V5rGq30eHF0vdETGAI8dwFU_J_MlLfJHU5et89_mf8wUJnyBgQ39AmsRfdIosTBXMzCmR7rHap3N-xNPYtuPT-RrSg-VEhBjQnq1le6bYCtsAQUlNfmEGhSsYI0CnzxyChjBjUja-nRlIs_CcQ",
+          "width": 1440
+        }
+      ],
+      "place_id": "ChIJ2V-dbHNFzpQRWz0btxWnDqQ",
+      "plus_code": {
+        "compound_code": "C9X4+C8 Bela Vista, S\u00e3o Paulo - SP, Brasil",
+        "global_code": "588MC9X4+C8"
+      },
+      "rating": 5,
+      "reference": "ChIJ2V-dbHNFzpQRWz0btxWnDqQ",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 2,
+      "vicinity": "Rua Santo Ant\u00f4nio, 601 - Bela Vista, S\u00e3o Paulo"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -23.55347,
+          "lng": -46.6433019
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -23.5521159697085,
+            "lng": -46.6419058697085
+          },
+          "southwest": {
+            "lat": -23.5548139302915,
+            "lng": -46.64460383029149
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "9e617f6880b8685e2d3d2574c927b44ae3eb1764",
+      "name": "Pizzaria Corado",
+      "opening_hours": {
+        "open_now": false
+      },
+      "photos": [
+        {
+          "height": 1836,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/118436422455394431841\">Celio Corado</a>"
+          ],
+          "photo_reference": "CmRaAAAAADESeQw5LXKuhvS1ogY8RdWGWpbxOPAs9NZN1FXGtwQ1rubQNtrJuRlEVCYlgG9JOV4CrP51HCxMlxcyU4dWAUtFDQJEoS0HBYrTKaVUwULNnIhQttFLGLXb-WKIBIJDEhAot6JuONMHizSoMXUerAN6GhQgZFM8KrABnMyW6AWarn9sWsyq5A",
+          "width": 3264
+        }
+      ],
+      "place_id": "ChIJS78_97JZzpQRgs8vohh0dB8",
+      "plus_code": {
+        "compound_code": "C9W4+JM Bela Vista, S\u00e3o Paulo - SP, Brasil",
+        "global_code": "588MC9W4+JM"
+      },
+      "rating": 3.8,
+      "reference": "ChIJS78_97JZzpQRgs8vohh0dB8",
+      "scope": "GOOGLE",
+      "types": [
+        "meal_takeaway",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 34,
+      "vicinity": "Rua Major Diogo, 260 - Bela Vista, S\u00e3o Paulo"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -23.5513236,
+          "lng": -46.6437288
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -23.5499300197085,
+            "lng": -46.64240126970849
+          },
+          "southwest": {
+            "lat": -23.5526279802915,
+            "lng": -46.64509923029149
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "35e0e627cace8aaf66ec7d5f11757c13f07dbb2c",
+      "name": "BM Bar e Lanches",
+      "opening_hours": {
+        "open_now": true
+      },
+      "place_id": "ChIJoYxCK01YzpQRiUeYyx7GKBc",
+      "plus_code": {
+        "compound_code": "C9X4+FG Bela Vista, S\u00e3o Paulo - SP, Brasil",
+        "global_code": "588MC9X4+FG"
+      },
+      "reference": "ChIJoYxCK01YzpQRiUeYyx7GKBc",
+      "scope": "GOOGLE",
+      "types": [
+        "meal_takeaway",
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "Rua Santo Ant\u00f4nio, 553 - Bela Vista, S\u00e3o Paulo"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -23.5513207,
+          "lng": -46.64372949999999
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -23.5499284697085,
+            "lng": -46.64240131970849
+          },
+          "southwest": {
+            "lat": -23.5526264302915,
+            "lng": -46.64509928029149
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "0a3cefec6176433cd8b50e58e74171a538c8a6ee",
+      "name": "Bar e Restaurante",
+      "place_id": "ChIJKYdCK01YzpQRmrMWzfNdTfc",
+      "plus_code": {
+        "compound_code": "C9X4+FG Bela Vista, S\u00e3o Paulo - SP, Brasil",
+        "global_code": "588MC9X4+FG"
+      },
+      "reference": "ChIJKYdCK01YzpQRmrMWzfNdTfc",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "Rua Santo Ant\u00f4nio, 553 - Bela Vista, S\u00e3o Paulo"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -23.5516244,
+          "lng": -46.64495220000001
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -23.5503121697085,
+            "lng": -46.6435853697085
+          },
+          "southwest": {
+            "lat": -23.5530101302915,
+            "lng": -46.6462833302915
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "c9baf6908a675f80b7ff1b3ed8ce4e956b2f22e7",
+      "name": "Lanchonete Rainha da Santo Antonio",
+      "opening_hours": {
+        "open_now": true
+      },
+      "place_id": "ChIJYxIVMk1YzpQRVkgsf3x83ug",
+      "plus_code": {
+        "compound_code": "C9X4+92 Bela Vista, S\u00e3o Paulo - SP, Brasil",
+        "global_code": "588MC9X4+92"
+      },
+      "rating": 4.6,
+      "reference": "ChIJYxIVMk1YzpQRVkgsf3x83ug",
+      "scope": "GOOGLE",
+      "types": [
+        "meal_takeaway",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 9,
+      "vicinity": "Rua Santo Ant\u00f4nio, 674 - Bela Vista, S\u00e3o Paulo"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -23.5514375,
+          "lng": -46.64322050000001
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -23.55009571970849,
+            "lng": -46.64196616970851
+          },
+          "southwest": {
+            "lat": -23.5527936802915,
+            "lng": -46.6446641302915
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "536b3a412a966ecc26caeab6db417a0c7e68d711",
+      "name": "Da Preta Caf\u00e9",
+      "opening_hours": {
+        "open_now": true
+      },
+      "place_id": "ChIJa1H23FVZzpQRS0rj7-eSxrc",
+      "plus_code": {
+        "compound_code": "C9X4+CP Bela Vista, S\u00e3o Paulo - SP, Brasil",
+        "global_code": "588MC9X4+CP"
+      },
+      "rating": 5,
+      "reference": "ChIJa1H23FVZzpQRS0rj7-eSxrc",
+      "scope": "GOOGLE",
+      "types": [
+        "meal_takeaway",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 1,
+      "vicinity": "Rua Major Diogo, 51 - 9 - Bela Vista, S\u00e3o Paulo"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -23.5528183,
+          "lng": -46.64544679999999
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -23.5515063197085,
+            "lng": -46.6440602197085
+          },
+          "southwest": {
+            "lat": -23.5542042802915,
+            "lng": -46.64675818029149
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "f780eafdad0961bb55c04c112926f2a7b4b1aab9",
+      "name": "Padaria S\u00e3o Domingos",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3264,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107496995670203005229\">Diego Tietz</a>"
+          ],
+          "photo_reference": "CmRaAAAAa3yQWqceksbei3pIewmAXnws4086npbQVfr1USDdeTNeSUvAMH4i1gDncQzheIBViY_h5uUh2MhRa7N7c7aYAAtwGtEnfVSiGJyMv_lJ00yH8pr5sKWS2UpL58LXUnvSEhD_Fl_Q8MeMfhwWxKpAef3jGhRAxe2HQYuPl27bII1_9yi0RMZQoA",
+          "width": 2448
+        }
+      ],
+      "place_id": "ChIJ_ShTQbNZzpQRiwM1Uoysph4",
+      "plus_code": {
+        "compound_code": "C9W3+VR Bela Vista, S\u00e3o Paulo - SP, Brasil",
+        "global_code": "588MC9W3+VR"
+      },
+      "price_level": 2,
+      "rating": 4.6,
+      "reference": "ChIJ_ShTQbNZzpQRiwM1Uoysph4",
+      "scope": "GOOGLE",
+      "types": [
+        "bakery",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "store",
+        "establishment"
+      ],
+      "user_ratings_total": 2269,
+      "vicinity": "Rua S\u00e3o Domingos, 330 - Bela Vista, S\u00e3o Paulo"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -23.5513761,
+          "lng": -46.6432169
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -23.5500346697085,
+            "lng": -46.6419671197085
+          },
+          "southwest": {
+            "lat": -23.5527326302915,
+            "lng": -46.6446650802915
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "eee8a937a5846c8f3224bec03b234d91479a1c13",
+      "name": "Restaurante Coffee Shop",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 960,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/106738848170125359156\">Restaurante Coffee Shop</a>"
+          ],
+          "photo_reference": "CmRaAAAA87euvfM5XW1pbMOvy96EU-gN2ncN-xSV0zxiy1jgTIR63DrAEldqpEuQvyFe6E_gq4cBlAHSiJcqbrrELdymIFulsnRKUxDHfCMaxGCitggdQagv1HqcDaWKKb3aEgJTEhBjhfegqtZMQP4bO3fSzvnQGhS6fjjjhJchzJtiEalb0U4RK3cGqg",
+          "width": 1280
+        }
+      ],
+      "place_id": "ChIJ973u9zJZzpQRX3cMcPg4RDc",
+      "plus_code": {
+        "compound_code": "C9X4+CP Centro Hist\u00f3rico de S\u00e3o Paulo, S\u00e3o Paulo - SP, Brasil",
+        "global_code": "588MC9X4+CP"
+      },
+      "rating": 3.5,
+      "reference": "ChIJ973u9zJZzpQRX3cMcPg4RDc",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 2,
+      "vicinity": "Rua Major Diogo, n\u00ba 39 - 5\u00ba andar - Centro Hist\u00f3rico de S\u00e3o Paulo, S\u00e3o Paulo"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -23.5520986,
+          "lng": -46.6425355
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -23.5507361697085,
+            "lng": -46.6410483697085
+          },
+          "southwest": {
+            "lat": -23.5534341302915,
+            "lng": -46.6437463302915
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "85781521c6d2eb9b70b5d969ad4316bfc8d69cc2",
+      "name": "Castelinho",
+      "place_id": "ChIJLcxhju9ZzpQRYT_h547n6dM",
+      "plus_code": {
+        "compound_code": "C9X4+5X Bela Vista, S\u00e3o Paulo - SP, Brasil",
+        "global_code": "588MC9X4+5X"
+      },
+      "reference": "ChIJLcxhju9ZzpQRYT_h547n6dM",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "Rua Aboli\u00e7\u00e3o, 156 - Bela Vista, S\u00e3o Paulo"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -23.553822,
+          "lng": -46.6431153
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -23.5524742197085,
+            "lng": -46.6417786697085
+          },
+          "southwest": {
+            "lat": -23.5551721802915,
+            "lng": -46.64447663029149
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "74376163555c8725639b9102766ca3a1058cc820",
+      "name": "Todo Sabor Salgados",
+      "place_id": "ChIJufFPWbJZzpQRjq6eh35Z0-0",
+      "plus_code": {
+        "compound_code": "C9W4+FQ Bela Vista, S\u00e3o Paulo - SP, Brasil",
+        "global_code": "588MC9W4+FQ"
+      },
+      "rating": 4.6,
+      "reference": "ChIJufFPWbJZzpQRjq6eh35Z0-0",
+      "scope": "GOOGLE",
+      "types": [
+        "meal_takeaway",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 5,
+      "vicinity": "Rua Major Diogo, 305 - Bela Vista, S\u00e3o Paulo"
+    },
+    {
+      "business_status": "OPERATIONAL",
+      "geometry": {
+        "location": {
+          "lat": -23.551187,
+          "lng": -46.643278
+        },
+        "viewport": {
+          "northeast": {
+            "lat": -23.5497741697085,
+            "lng": -46.6419604697085
+          },
+          "southwest": {
+            "lat": -23.5524721302915,
+            "lng": -46.6446584302915
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/restaurant-71.png",
+      "id": "c9f7e946160861c08d1297e113f972d9014a6cd3",
+      "name": "Restaurante Novo Sabor",
+      "opening_hours": {
+        "open_now": true
+      },
+      "photos": [
+        {
+          "height": 3096,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/109993661968778230648\">Glaucia e Pine Suzuki Erthal</a>"
+          ],
+          "photo_reference": "CmRaAAAAennrN7i2-jPA3vug6CH2fAyK1fcHrAZoVJbxfnnmQ66XVaTkOWO2dPc5fVExOIUI9_EJe7Zfp0lNGsj-2zDLxEMiC6fnIZowWDHwinqSItSkcmNzoK4LrfYGFwdXv0aYEhBKpWf4C5P2lTRvFHpZ1Ua2GhRuK64xTYF4LWuySYoqNhplpV3ZtQ",
+          "width": 4128
+        }
+      ],
+      "place_id": "ChIJzaQ4LE1YzpQRdMUPTLo7cVY",
+      "plus_code": {
+        "compound_code": "C9X4+GM Consola\u00e7\u00e3o, S\u00e3o Paulo - SP, Brasil",
+        "global_code": "588MC9X4+GM"
+      },
+      "rating": 4.2,
+      "reference": "ChIJzaQ4LE1YzpQRdMUPTLo7cVY",
+      "scope": "GOOGLE",
+      "types": [
+        "restaurant",
+        "meal_takeaway",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "user_ratings_total": 18,
+      "vicinity": "Rua Santo Ant\u00f4nio, 530 - Consola\u00e7\u00e3o, S\u00e3o Paulo"
+    }
+  ],
+  "status": "OK"
+}
