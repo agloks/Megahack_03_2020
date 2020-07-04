@@ -3,9 +3,13 @@
 import re
 import time
 
-from .mockup_conversation import *
-from . import whastapp_api
-from .DI import (ENV, handlerJson, geocoding)
+# from .mockup_conversation import *
+# from . import whastapp_api
+# from .DI import (ENV, handlerJson, geocoding)
+
+from mockup_conversation import *
+import whastapp_api
+from DI import (ENV, handlerJson, geocoding)
 
 def isCached(data):
   '''
@@ -95,14 +99,14 @@ class PhasesConversation:
     possibles_commands_list = [["1", "recomendação"], ["2", "próximos"]]
 
     if(action in possibles_commands_list[1]):
-      whastapp_api.response_to(stage_3(action), self.phone)
-      # print(stage_3(action))
+      # whastapp_api.response_to(stage_3(action), self.phone)
+      print(stage_3(action))
 
       self._updateStage(6)
       return self.phase_6()
     elif(action in possibles_commands_list[0]):
-      whastapp_api.response_to(stage_3(action), self.phone)
-      # print(stage_3(action))
+      # whastapp_api.response_to(stage_3(action), self.phone)
+      print(stage_3(action))
 
       self._updateStage(4)
       return self.phase_4()
@@ -117,8 +121,8 @@ class PhasesConversation:
     restaurantsFound = utensilMaps.topFiveNearbyFoodPlace(self.address)
 
     self._updateStage(7)
-    whastapp_api.response_to(stage_6_01(restaurantsFound), self.phone)
-    # print(stage_6_01(restaurantsFound))
+    # whastapp_api.response_to(stage_6_01(restaurantsFound), self.phone)
+    print(stage_6_01(restaurantsFound))
 
     return stage_6_02()
 
@@ -154,7 +158,9 @@ class HandlerConversation(PhasesConversation):
       #if it overcome the limit of the 2 min without update, reset the stage
       if(not isCached(data_cached)):
         self._updateStage(0)
-      self.phase_stage = data_cached["phaseStagePerson"]
+        self.phase_stage = 0
+      else:
+        self.phase_stage = data_cached["phaseStagePerson"]
       #putting address to the class base manipulate
       if("address" in data_cached):
         self.address = data_cached["address"]
