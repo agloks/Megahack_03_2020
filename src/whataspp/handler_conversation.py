@@ -3,9 +3,9 @@
 import re
 import time
 
-from mockup_conversation import *
-import whastapp_api
-from DI import (ENV, handlerJson, geocoding)
+from .mockup_conversation import *
+from . import whastapp_api
+from .DI import (ENV, handlerJson, geocoding)
 
 def isCached(data):
   '''
@@ -95,15 +95,14 @@ class PhasesConversation:
     possibles_commands_list = [["1", "recomendação"], ["2", "próximos"]]
 
     if(action in possibles_commands_list[1]):
-      # whastapp_api.response_to(stage_3(action), self.phone)
-      print(stage_3(action))
+      whastapp_api.response_to(stage_3(action), self.phone)
+      # print(stage_3(action))
 
-      #begin chain to 6_0 -> 6_1
       self._updateStage(6)
-      return self.phase_6_0()
+      return self.phase_6()
     elif(action in possibles_commands_list[0]):
-      # whastapp_api.response_to(stage_3(action), self.phone)
-      print(stage_3(action))
+      whastapp_api.response_to(stage_3(action), self.phone)
+      # print(stage_3(action))
 
       self._updateStage(4)
       return self.phase_4()
@@ -113,14 +112,18 @@ class PhasesConversation:
   def phase_4(self):
     pass
 
-  def phase_6_0(self):
+  def phase_6(self):
     utensilMaps = geocoding.UtensilMaps(ENV.GMAPS_API_TWO)
     restaurantsFound = utensilMaps.topFiveNearbyFoodPlace(self.address)
 
-    # whastapp_api.response_to(stage_6_1(restaurantsFound), self.phone)
-    print(stage_6_0(restaurantsFound))
+    self._updateStage(7)
+    whastapp_api.response_to(stage_6_01(restaurantsFound), self.phone)
+    # print(stage_6_01(restaurantsFound))
 
-  def phase_6_1(self):
+    return stage_6_02()
+
+  def phase_7(self):
+
     pattern = re.compile(".*(?P<number>1|2|3|4|5)", re.I | re.M)
     #set to not take duplicate of the same word
     regex_result = pattern.match(self.text)
@@ -129,18 +132,13 @@ class PhasesConversation:
       Selecione um numero de 1 a 5 dos possíveis restaurantes acima
     '''
 
-    if(regex_result == None):
-      unknow_response(self.commands)
-      return -1
-
     #taking the result obtained from regex_result, which will only one command that not was None
     action = [item for item in regex_result.groupdict().values() if item != None][0].lower()
     possibles_commands_list = ["1", "2", "3", "4", "5"]
 
     if(not (action in possibles_commands_list)):
       unknow_response(self.commands)
-      return -1
-    
+      return -1    
 
 class HandlerConversation(PhasesConversation):
   def __init__(self, name, phone, text):
