@@ -40,10 +40,22 @@ def stage_3(action):
       Legal, deixe comigo só vou trazer os mais próximos...
       '''
 
-def stage_6(restaurants):
+def stage_6_0(restaurants):
+  
+
   return f'''
     {restaurants}
   '''      
+
+def stage_6_1():
+  return f'''
+    Dos estabelecimentos parceiros você pode já pedir o cardapio e ver as opções aqui mesmo,
+    e se quiser até mesmo fazer seu pagamento adiantado, deseja ver o cardapio de algum parceiro?
+
+    Se sim basta somente colocar o numero dele enviado na mensagem anteiror! 
+
+    Se não, muito obrigado pela conversa comigo, espero que você tenha um bom rango e volte sempre, sentirei saudades! s2
+  '''
 
 #generic response to handle with commands not was able to understand
 def unknow_response(commands):

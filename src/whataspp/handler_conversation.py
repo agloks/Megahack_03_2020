@@ -73,7 +73,7 @@ class PhasesConversation:
     return stage_1(action)
 
   def phase_2(self):
-    self.data_to_cache["address"] = self.text
+    self.address = self.text
     self._updateStage(3)
     return stage_2()
 
@@ -96,10 +96,15 @@ class PhasesConversation:
 
     if(action in possibles_commands_list[1]):
       # whastapp_api.response_to(stage_3(action), self.phone)
+      print(stage_3(action))
+
+      #begin chain to 6_0 -> 6_1
       self._updateStage(6)
-      return self.phase_6()
+      return self.phase_6_0()
     elif(action in possibles_commands_list[0]):
       # whastapp_api.response_to(stage_3(action), self.phone)
+      print(stage_3(action))
+
       self._updateStage(4)
       return self.phase_4()
     else:
@@ -108,14 +113,17 @@ class PhasesConversation:
   def phase_4(self):
     pass
 
-  def phase_6(self):
+  def phase_6_0(self):
+    utensilMaps = geocoding.UtensilMaps(ENV.GMAPS_API_TWO)
+    restaurantsFound = utensilMaps.topFiveNearbyFoodPlace(self.address)
+
+    # whastapp_api.response_to(stage_6_1(restaurantsFound), self.phone)
+    print(stage_6_0(restaurantsFound))
+
+  def phase_6_1(self):
     pattern = re.compile(".*(?P<number>1|2|3|4|5)", re.I | re.M)
     #set to not take duplicate of the same word
     regex_result = pattern.match(self.text)
-
-    utensilMaps = geocoding.UtensilMaps(ENV.GMAPS_API_TWO)
-    restaurantsFound = utensilMaps.topFiveNearbyFoodPlace(self.address)
-    print(restaurantsFound)
 
     self.commands = f'''
       Selecione um numero de 1 a 5 dos possíveis restaurantes acima
@@ -127,9 +135,12 @@ class PhasesConversation:
 
     #taking the result obtained from regex_result, which will only one command that not was None
     action = [item for item in regex_result.groupdict().values() if item != None][0].lower()
+    possibles_commands_list = ["1", "2", "3", "4", "5"]
 
-    return stage_6(restaurantsFound)
-
+    if(not (action in possibles_commands_list)):
+      unknow_response(self.commands)
+      return -1
+    
 
 class HandlerConversation(PhasesConversation):
   def __init__(self, name, phone, text):
