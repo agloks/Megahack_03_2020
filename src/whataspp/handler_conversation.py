@@ -3,10 +3,12 @@
 import re
 import time
 
+#PRODUCTION
 from .mockup_conversation import *
 from . import whastapp_api
 from .DI import (ENV, handlerJson, geocoding)
 
+#DEVELOP
 # from mockup_conversation import *
 # import whastapp_api
 # from DI import (ENV, handlerJson, geocoding)
