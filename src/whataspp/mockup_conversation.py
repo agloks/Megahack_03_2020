@@ -40,6 +40,49 @@ def stage_3(action):
     Legal, deixe comigo só vou trazer os mais próximos...
       '''
 
+def stage_4_99():
+  return f'''
+    Tudo bem, imagino que você esteja sem tempo no momento, irei te mandar 
+    enviar os restaurantes mais próximos... 
+  '''
+
+def stage_4_01():
+  return f'''
+    Eu vejo que é a sua primeira vez com a gente, e não temos suas preferências para recomendar, você poderia me responsder algumas perguntas sobre seus gostos e preferências?
+ 
+      1) Sim
+      2) Não
+  '''
+
+def stage_4_02():
+  return f'''
+    Que tipo de ambiente você gosta de frequentar?
+
+      1) Calmo
+      2) Badalado
+      3) Retro
+      4) Moderno
+      5) Simples
+      6) Sotisficado
+  '''
+
+def stage_4_03():
+  return f'''
+    Ok, obrigado, e qual seu tipo de comida predileto?
+
+      1) Vegana
+      2) Churrasco
+      3) Japonesa
+      4) Chinesa
+      5) Nordestina
+      6) Italina
+  '''
+
+def stage_4_04():
+  return f'''
+    Muito Obrigado, irei te recomendar os mais próximos de acordo com seu gosto!
+  '''
+
 def stage_6_01(restaurants):
 
   list_restaurants = []

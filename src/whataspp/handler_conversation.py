@@ -3,13 +3,13 @@
 import re
 import time
 
-# from .mockup_conversation import *
-# from . import whastapp_api
-# from .DI import (ENV, handlerJson, geocoding)
+from .mockup_conversation import *
+from . import whastapp_api
+from .DI import (ENV, handlerJson, geocoding)
 
-from mockup_conversation import *
-import whastapp_api
-from DI import (ENV, handlerJson, geocoding)
+# from mockup_conversation import *
+# import whastapp_api
+# from DI import (ENV, handlerJson, geocoding)
 
 def isCached(data):
   '''
@@ -99,30 +99,111 @@ class PhasesConversation:
     possibles_commands_list = [["1", "recomendação"], ["2", "próximos"]]
 
     if(action in possibles_commands_list[1]):
-      # whastapp_api.response_to(stage_3(action), self.phone)
-      print(stage_3(action))
+      whastapp_api.response_to(stage_3(action), self.phone)
+      # print(stage_3(action))
 
       self._updateStage(6)
       return self.phase_6()
     elif(action in possibles_commands_list[0]):
-      # whastapp_api.response_to(stage_3(action), self.phone)
-      print(stage_3(action))
+      whastapp_api.response_to(stage_3(action), self.phone)
+      # print(stage_3(action))
 
+      #TODO: Query here to see if number already is in our DB
+      is_client = False
+      if(is_client):
+        self._updateStage(6)
+        return self.phase_6()    
+      
       self._updateStage(4)
-      return self.phase_4()
+      return stage_4_01()
     else:
       return unknow_response(self.commands)
       
   def phase_4(self):
-    pass
+    pattern = re.compile(".*((?P<number>1|2)|(?P<command>Sim|Não))", re.I | re.M)
+    #set to not take duplicate of the same word
+    regex_result = pattern.match(self.text)
+    
+    self.commands = f'''
+      1) Sim
+      2) Não
+    '''
+
+    if(regex_result == None):
+      unknow_response(self.commands)
+      return -1
+
+    #taking the result obtained from regex_result, which will only one command that not was None
+    action = [item for item in regex_result.groupdict().values() if item != None][0].lower()
+    possibles_commands_list = [["1", "sim"], ["2", "não"]]
+
+    if(action in possibles_commands_list[1]):
+      whastapp_api.response_to(stage_4_99(), self.phone)
+      # print(stage_4_99())
+
+      self._updateStage(6)
+      return self.phase_6()
+    elif(action in possibles_commands_list[0]):
+      self._updateStage(4.1)
+      return stage_4_02()
+
+    else:
+      return unknow_response(self.commands)
+
+  def phase_4_01(self):
+    pattern = re.compile(".*((?P<number>1|2|3|4|5|6)|(?P<command>Calmo|Badalado|Retro|Moderno|Simples|Sotisficado))", re.I | re.M)
+    #set to not take duplicate of the same word
+    regex_result = pattern.match(self.text)
+    
+    self.commands = f'''
+      1) Calmo
+      2) Badalado
+      3) Retro
+      4) Moderno
+      5) Simples
+      6) Sotisficado 
+    '''
+
+    if(regex_result == None):
+      unknow_response(self.commands)
+      return -1
+
+    #TODO: validation here equal above and save data
+    self._updateStage(4.2)
+    return stage_4_03()
+
+  def phase_4_02(self):
+    pattern = re.compile(".*((?P<number>1|2|3|4|5|6)|(?P<command>Vegana|Churrasco|Japonesa|Chinesa|Nordestina|Italiana))", re.I | re.M)
+    #set to not take duplicate of the same word
+    regex_result = pattern.match(self.text)
+    
+    self.commands = f'''
+      1) Vegana
+      2) Churrasco
+      3) Japonesa
+      4) Chinesa
+      5) Nordestina
+      6) Italina
+    '''
+
+    if(regex_result == None):
+      unknow_response(self.commands)
+      return -1
+
+    #TODO: validation here equal above, save data, and trace perfil
+    whastapp_api.response_to(stage_4_04(), self.phone)
+    # print(stage_4_04())
+
+    self._updateStage(6)
+    return self.phase_6()
 
   def phase_6(self):
     utensilMaps = geocoding.UtensilMaps(ENV.GMAPS_API_TWO)
     restaurantsFound = utensilMaps.topFiveNearbyFoodPlace(self.address)
 
     self._updateStage(7)
-    # whastapp_api.response_to(stage_6_01(restaurantsFound), self.phone)
-    print(stage_6_01(restaurantsFound))
+    whastapp_api.response_to(stage_6_01(restaurantsFound), self.phone)
+    # print(stage_6_01(restaurantsFound))
 
     return stage_6_02()
 
@@ -169,7 +250,10 @@ class HandlerConversation(PhasesConversation):
       0: self.phase_0,
       1: self.phase_1,
       2: self.phase_2,
-      3: self.phase_3
+      3: self.phase_3,
+      4: self.phase_4,
+      4.1: self.phase_4_01,
+      4.2: self.phase_4_02
     }
 
     try:
@@ -183,7 +267,10 @@ if __name__ == '__main__':
     "oi",
     "Eu queor uma comer",
     "Cambuci, São Paulo",
-    "Próximos"
+    "Recomendação",
+    "1",
+    "2",
+    "6"
   ]
 
   for text in conversation_test_one:
