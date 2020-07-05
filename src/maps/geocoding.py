@@ -24,8 +24,6 @@ import googlemaps
 import re
 from datetime import datetime
 
-from DI import ENV
-
 class Gmaps:
   def __init__(self, key):
     self.gmaps = googlemaps.Client(key=key)
@@ -37,6 +35,7 @@ class Gmaps:
     geocode_result = self.gmaps.geocode(address)
 
     result = {
+# from .DI import ENV
       "lat": geocode_result[0]["geometry"]["location"]["lat"],
       "long": geocode_result[0]["geometry"]["location"]["lng"]
     }
@@ -124,13 +123,14 @@ class UtensilMaps(Gmaps):
     nearby_restaurants = [document for document in nearby_restaurants["results"] if pattern.match(document["vicinity"]) != None]
     
     #4) only top five results
-    result = nearby_restaurants[0:4]
+    result = nearby_restaurants[0:7]
 
     return result
      
 
 
 if __name__ == '__main__':
+  from .DI import ENV
   import json
 
   # gmaps = Gmaps(ENV.GMAPS_API_TWO)

@@ -5,7 +5,7 @@ import os
 import json
 
 
-from src.whataspp import mockup_conversation, whastapp_api
+from src.whataspp import handler_conversation, whastapp_api
 
 #####################################################################################################
 
@@ -80,7 +80,7 @@ def listenerMessage():
 
   #3)handle return response
   try:
-    handlerConversation = mockup_conversation.HandlerConversation(name_people, number_people, text_message)
+    handlerConversation = handler_conversation.HandlerConversation(name_people, number_people, text_message)
     text_response = handlerConversation.run()
     
     whastapp_api.response_to(text_response, number_people)

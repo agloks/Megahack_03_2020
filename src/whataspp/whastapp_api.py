@@ -24,7 +24,11 @@ To receive is by callback in webhook, we need make a POST route to the callback
 import json
 import requests
 
+#PRODUCTION
 from .DI import ENV
+
+#DEVELOP
+# from DI import ENV
 
 def response_to(text, number):
   '''

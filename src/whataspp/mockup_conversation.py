@@ -1,8 +1,3 @@
-import re
-import time
-
-from DI import handlerJson
-
 def stage_0(name):
   return f'''
     Oi {name}, eu sou o meu garçom e estou aqui para te servir, ainda estou apredendo a linguagem dos humanos, então por favor não tente muita coisa pois eu sou bem novo. No que eu posso te servir no momento?
@@ -14,37 +9,112 @@ def stage_0(name):
 def stage_1(action):
   if((action == "1") or (action == "ajuda")):
     return f'''
-      Claro, eu sempre vou te enviar as opções para comando a cada conversa, você pode digitar o texto ou colocar o numero. No momento tenho os seguintes comando:
+    Claro, eu sempre vou te enviar as opções para comando a cada conversa, você pode digitar o texto ou colocar o numero. No momento tenho os seguintes comando:
 
-        1) ajuda
-        2) comer
+      1) Ajuda
+      2) Comer
       '''
   if((action == "2") or (action == "comer")):
     return f'''
-      Pode me informe por favor em qual endereço você se encontra?
-      Quanto mais informação como o modelo abaixo, melhor eu consigo te indicar =)
+    Pode me informe por favor em qual endereço você se encontra?
+    Quanto mais informação como o modelo abaixo, melhor eu consigo te indicar =)
 
-        Exemplo: Rua Santo Antonio, 601 - Bela Vista, São Paulo
+      Exemplo: Rua Santo Antonio, 601 - Bela Vista, São Paulo
       '''
 
 def stage_2():
   return f'''
     Deseja alguma recomendação minha ou somente os mais próximos?
  
-    1) recomendação
-    2) próximos
+      1) Recomendação
+      2) Próximos
     '''
 
 def stage_3(action):
   if((action == "1") or (action == "recomendação")):
     return f'''
-      Legal, deixe comigo só vou trazer os melhores
+    Legal, deixe comigo só vou trazer os melhores
       '''
   if((action == "2") or (action == "próximos")):
     return f'''
-      Legal, deixe comigo só vou trazer os mais próximos...
+    Legal, deixe comigo só vou trazer os mais próximos...
       '''
-      
+
+def stage_4_99():
+  return f'''
+    Tudo bem, imagino que você esteja sem tempo no momento, irei te mandar 
+    enviar os restaurantes mais próximos... 
+  '''
+
+def stage_4_01():
+  return f'''
+    Eu vejo que é a sua primeira vez com a gente, e não temos suas preferências para recomendar, você poderia me responsder algumas perguntas sobre seus gostos e preferências?
+ 
+      1) Sim
+      2) Não
+  '''
+
+def stage_4_02():
+  return f'''
+    Que tipo de ambiente você gosta de frequentar?
+
+      1) Calmo
+      2) Badalado
+      3) Retro
+      4) Moderno
+      5) Simples
+      6) Sotisficado
+  '''
+
+def stage_4_03():
+  return f'''
+    Ok, obrigado, e qual seu tipo de comida predileto?
+
+      1) Vegana
+      2) Churrasco
+      3) Japonesa
+      4) Chinesa
+      5) Nordestina
+      6) Italina
+  '''
+
+def stage_4_04():
+  return f'''
+    Muito Obrigado, irei te recomendar os mais próximos de acordo com seu gosto!
+  '''
+
+def stage_6_01(restaurants):
+
+  list_restaurants = []
+
+  for item in range(1, 6):
+    list_restaurants.append(
+      f"""
+      {item})
+        Nome: {restaurants[item - 1]["name"]}
+        Endereço: {restaurants[item - 1]["vicinity"]}
+        Parceiro: Não
+      """
+    )
+
+  return f'''
+  {list_restaurants[0]}
+  {list_restaurants[1]}
+  {list_restaurants[2]}
+  {list_restaurants[3]}
+  {list_restaurants[4]}
+  '''      
+
+def stage_6_02():
+  return f'''
+    Dos estabelecimentos parceiros você pode já pedir o cardapio e ver as opções aqui mesmo,
+    e se quiser até mesmo fazer seu pagamento adiantado, deseja ver o cardapio de algum parceiro?
+
+    Se sim basta somente colocar o numero dele enviado na mensagem anteiro! 
+
+    Se não, muito obrigado pela conversa comigo, espero que você tenha um bom rango e volte sempre, sentirei saudades! s2
+  '''
+
 #generic response to handle with commands not was able to understand
 def unknow_response(commands):
   
@@ -53,133 +123,3 @@ def unknow_response(commands):
 
     {commands}
   '''
-
-def isCached(data):
-  '''
-  :rtype: True = it's cached
-          False = it's not cached
-  '''
-  time_min = time.gmtime().tm_min
-  diff_time_min = int(data["time_min"]) - time_min
-  
-  #minutes scale
-  if(diff_time_min > 2):
-    return False
-
-  return True
-
-class PhasesConversation:
-  def __init__(self, name, phone, text):
-    self.phone = phone
-    self.name = name
-    self.text = text
-    self.data_to_cache = {
-      "namePerson": self.name,
-      "phonePerson": self.phone,
-      "phaseStagePerson": 0 
-    }
-    self.phase_stage = 0
-    self.commands = f'''
-        1) Recomendação
-        2) Próximos
-      '''
-
-  def _updateStage(self, level):
-    self.phase_stage = level
-    self.data_to_cache["phaseStagePerson"] = self.phase_stage
-    
-    #must to ben run at root folder project
-    handlerJson.writeToJSONFile(self.data_to_cache, "./temp/", self.phone)
-
-  def phase_0(self):
-    self._updateStage(1)
-    return stage_0(self.name)
-
-  def phase_1(self):
-    pattern = re.compile(".*((?P<number>1|2)|(?P<command>ajuda|comer))", re.I | re.M)
-    #set to not take duplicate of the same word
-    regex_result = pattern.match(self.text)
-    
-    self.commands = f'''
-      1) Ajuda
-      2) Comer
-    '''
-
-    if(regex_result == None):
-      unknow_response(self.commands)
-      return -1
-
-    #taking the result obtained from regex_result, which will only one command that not was None
-    action = [item for item in regex_result.groupdict().values() if item != None][0].lower()
-    if((action == "2") or (action == "comer")):
-      self._updateStage(2)
-
-    return stage_1(action)
-
-  def phase_2(self):
-    self.data_to_cache["endereco"] = self.text
-    self._updateStage(3)
-    return stage_2()
-
-  def phase_3(self):
-    pattern = re.compile(".*((?P<number>1|2|3)|(?P<command>recomendação|próximos))", re.I | re.M)
-    #set to not take duplicate of the same word
-    regex_result = pattern.match(self.text)
-    
-    self.commands = f'''
-      1) Recomendação
-      2) Próximos
-    '''
-
-    if(regex_result == None):
-      return unknow_response(self.commands)
-
-    #taking the result obtained from regex_result, which will only one command that not was None
-    action = [item for item in regex_result.groupdict().values() if item != None][0].lower()
-    possibles_commands_list = ["1", "2", "recomendação", "próximos"]
-    if(not action in possibles_commands_list):
-      return unknow_response(self.commands)
-      
-    return stage_3(action)
-
-class HandlerConversation(PhasesConversation):
-  def __init__(self, name, phone, text):
-    super().__init__(name, phone, text)
-    self.name = name
-    self.phone = phone
-    self.text = text
-
-  def run(self):
-    #must to ben run at root folder project
-    data_cached = handlerJson.loadJson("./temp/", self.phone)
-    if(data_cached):
-      #if it overcome the limit of the 2 min without update, reset the stage
-      if(not isCached(data_cached)):
-        self._updateStage(0)
-      self.phase_stage = data_cached["phaseStagePerson"]
-
-    phases = {
-      0: self.phase_0,
-      1: self.phase_1,
-      2: self.phase_2,
-      3: self.phase_3
-    }
-
-    try:
-      return phases[self.phase_stage]()
-    except Exception as e:
-      return unknow_response(self.commands)
-
-if __name__ == '__main__':
-
-  conversation_test_one = [
-    "oi",
-    "Eu queor uma comer",
-    "Cambuci, São Paulo",
-    "Próximos"
-  ]
-
-  for text in conversation_test_one:
-    handlerConversation = HandlerConversation("Amanda", "551195069324", text)
-    time.sleep(1)
-    print(handlerConversation.run())
