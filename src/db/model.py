@@ -50,6 +50,14 @@ class Cupom(db.EmbeddedDocument):
 		'collection': 'cupom'
 	}
 
+class Estoque(db.EmbeddedDocument):
+
+	nome = db.StringField(max_length=100, required=True)
+	quantidade = db.IntField(default=0)
+	create_at = db.DateTimeField()
+	modified_at = db.DateTimeField(default=datetime.now)
+
+
 
 ##########	ENTIDADE ESTABELECIMENTO ##########
 
@@ -73,7 +81,10 @@ class Estabelecimento(db.Document):
 	vendas = db.IntField()
 	create_at = db.DateTimeField()
 	modified_at = db.DateTimeField(default=datetime.now)
+	lista_consumidores = db.ListField(db.ReferenceField("Consumidor"))
+	itens_vendidos = db.ListField(db.ReferenceField("Pagamento"))
 	cupom = db.ListField(db.EmbeddedDocumentField("Cupom"))
+	estoque = db.ListField(db.EmbeddedDocumentField("Estoque"))
 
 	meta = {
 		'ordering': ['create_at'],
@@ -100,11 +111,22 @@ class Pagamento(db.Document):
 		'collection': 'pagamento'
 	}
 
+
+
 if __name__ == '__main__':
+
+	'''
+	data = Reservations.objects(restaurant=rest, 
+               customer__in=Customers.objects.filter(id="your filter id")).all()
+	'''
 	
-	consumidor = Consumidor(nome="Igo", telefone="+5586994550066", gastos_origem="ITALIANA", 
+	consumidor1 = Consumidor(nome="Igo", telefone="+5586994550066", gastos_origem="ITALIANA", 
 		gosto_movimentacao="CALMO", gosto_tipo="BAR", estabelecimento_visitados=4, fumante="SIM",
 		renda="ALTA", alcoolismo="RARO", create_at=datetime.now(), modified_at=datetime.now())
+
+	consumidor2 = Consumidor(nome="Luana", telefone="+55994288940", gastos_origem="CHINESA", 
+		gosto_movimentacao="BADALADO", gosto_tipo="RESTAURANTE", estabelecimento_visitados=4, fumante="NAO",
+		renda="BAIXA", alcoolismo="RARO", create_at=datetime.now(), modified_at=datetime.now())
 
 
 	estabelecimento = Estabelecimento(nome="meu chefe", telefone="+5586994288940", perfil_origem="BRASILEIRA",
@@ -114,22 +136,41 @@ if __name__ == '__main__':
 		vendas=40, create_at=datetime.now(), modified_at=datetime.now())
 
 
-	pagamento = Pagamento(cliente="Igo", estabelecimento="meu chefe", valor=300, status="FALHA",
+	pagamento1 = Pagamento(cliente="Igo", estabelecimento="meu chefe", valor=300, status="FALHA",
 		modo="QRCODE", voucher="seila", create_at=datetime.now(), modified_at=datetime.now())
 
+	pagamento2 = Pagamento(cliente="Heytor", estabelecimento="meu chefe", valor=200, status="PROCESSAMENTO",
+		modo="QRCODE", voucher="seila", create_at=datetime.now(), modified_at=datetime.now())
+
+
+
 	
-	consumidor.save()
+	consumidor1.save()
+	consumidor2.save()
 	
 	cupom = Cupom()
-	cupom.nome="desconto20"
-	cupom.desconto=40
-	cupom.ativo="SIM"
-	cupom.total_usado=100
-	cupom.create_at=datetime.now()
-	cupom.modified_at=datetime.now()
+	cupom.nome = "desconto20"
+	cupom.desconto = 40
+	cupom.ativo = "SIM"
+	cupom.total_usado = 100
+	cupom.create_at = datetime.now()
+	cupom.modified_at = datetime.now()
+
+	estoque = Estoque()
+	estoque.nome = "Açucar"
+	estoque.quantidade = 100
+	estoque.create_at = datetime.now()
+	estoque.modified_at = datetime.now()
+
+	pagamento1.save()
+	pagamento2.save()
 
 	estabelecimento.cupom.append(cupom)
+	estabelecimento.estoque.append(estoque)
+
+	estabelecimento.lista_consumidores = [consumidor1, consumidor2]
+	estabelecimento.itens_vendidos = [pagamento1, pagamento2]
+
 	estabelecimento.save()
 
-	pagamento.save()
 
