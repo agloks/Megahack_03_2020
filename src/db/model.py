@@ -120,6 +120,7 @@ if __name__ == '__main__':
                customer__in=Customers.objects.filter(id="your filter id")).all()
 	'''
 	
+	
 	consumidor1 = Consumidor(nome="Igo", telefone="+5586994550066", gastos_origem="ITALIANA", 
 		gosto_movimentacao="CALMO", gosto_tipo="BAR", estabelecimento_visitados=4, fumante="SIM",
 		renda="ALTA", alcoolismo="RARO", create_at=datetime.now(), modified_at=datetime.now())
