@@ -1,10 +1,8 @@
-FROM python:3
-
-WORKDIR . /mgh03
-
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . .
-
-CMD [ "python", "app.py" ]
+FROM ubuntu:latest
+RUN apt-get update -y
+RUN apt-get install -y python3-pip python-dev build-essential
+COPY . /mgh03
+WORKDIR /mgh03
+RUN pip3 install -r requirements.txt
+ENTRYPOINT ["python3"]
+CMD ["app.py"]
