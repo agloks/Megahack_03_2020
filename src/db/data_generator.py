@@ -5,7 +5,7 @@ def g_c():
     return {
         "nome" : choice(['Igo', 'Felipe', 'Flávio', 'Saulo', 'Filipe']),
         "telefone" : choice(["+5586994550066", "+5511994328745", "+551299834322", "+553298765342", "+554321847542"]),
-        "gastos_origem" : choice(["ITALIANA", "CHINESA", "CHAPONESA"]),
+        "gostos_origem" : choice(["ITALIANA", "CHINESA", "JAPONESA"]),
         "gosto_movimentacao" : choice(["CALMO", "BADALADO", "RETRO"]),
         "gosto_tipo" : choice(["BAR", "RESTAURANTE", "LANCHONETE"]),
         "estabelecimento_visitados" : choice([i for i in range(0, 200, 8)]),
@@ -21,7 +21,7 @@ def g_e():
     return {
     "nome" : choice(["Budega X", "Meu chefe", "Pao do dia", "Só sabor bom", "Dugao", "Tok Final", "Makakitos", "Bugao do churrasco"]),
     "telefone" : choice(["+5586994550066", "+5511994328745", "+551299834322", "+553298765342", "+554321847542"]),
-    "perfil_origem" : choice(["BRASILEIRA", "CHINESA", "CHAPONESA"]),
+    "perfil_origem" : choice(["BRASILEIRA", "CHINESA", "JAPONESA"]),
     "perfil_movimento" : choice(["CALMO", "BADALADO", "RETRO"]),
     "perfil_tipo" : choice(["BAR", "RESTAURANTE", "LANCHONETE"]),
     "latitude" : choice([1234343434, -988438434]),
@@ -87,7 +87,8 @@ def g_p():
 '''
 import json
 
-with open("pagamento.json", "w") as json_file:
+with open("consumidor.json", "w") as json_file:
     for i in range(1, 5001):
-        json.dump(g_p(), json_file, indent=4)
+        json.dump(g_c(), json_file, indent=4)
+
 '''
