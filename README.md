@@ -61,10 +61,6 @@ A solução “Meu Garçom” é uma inovação incremental que oferece diversas
 └── vcap-local.template.json (Cloud config)
 ```
 
-<h3 align="center" font-style="italic">
-	Estrutura Do Projeto
-</h3>
-
 # Features:
 
 - [x] Resesta conversa após certo tempo sem receber conversa
