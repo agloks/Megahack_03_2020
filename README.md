@@ -32,7 +32,7 @@ A solução “Meu Garçom” é uma inovação incremental que oferece diversas
 │   │   ├── DI.py
 │   │   ├── model.py
 │   │   └── schema_enum.py
-│   ├── maps (Mṕdulo para a manipulação com o GOOGLE API)
+│   ├── maps (Módulo para a manipulação com o GOOGLE API)
 │   │   ├── DI.py
 │   │   ├── doc
 │   │   │   ├── documenation_maps.txt
@@ -40,15 +40,15 @@ A solução “Meu Garçom” é uma inovação incremental que oferece diversas
 │   │   │   └── place_nearby_response.json
 │   │   ├── geocoding.py
 │   ├── payment
-│   ├── qrcode (Mṕdulo para fazer a geração dos qrcode)
+│   ├── qrcode (Módulo para fazer a geração dos qrcode)
 │   │   ├── generator_qrcode.py
 │   │   └── imgs
 │   │       ├── qrcode_test_eufraten.png
 │   │       └── qrcode_test_eufraten.svg
-│   ├── utility (Mṕdulo de proposta genéricas com funções de atendimento genérico)
+│   ├── utility (Módulo de proposta genéricas com funções de atendimento genérico)
 │   │   ├── handlerJson.py
 │   │   ├── logger.py
-│   └── whataspp (Mṕdulo para a manipulação com o ZENVIA API e responsável pela regra de negócio do chatbot)
+│   └── whataspp (Módulo para a manipulação com o ZENVIA API e responsável pela regra de negócio do chatbot)
 │       ├── DI.py
 │       ├── doc
 │       │   └── response_in.json
