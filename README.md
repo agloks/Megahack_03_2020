@@ -11,7 +11,7 @@ A solução “Meu Garçom” é uma inovação incremental que oferece diversas
 	Tecnologias Core Do Projeto
 </h3>
 <p align="center" font-style="cursive">
-	 Python | Zenvia API | Google API | Flask | IBM Cloud | Heroku
+	 Python | Zenvia API | Google API | Atlas | Flask | IBM Cloud | Heroku | MongoDB
 </p>
 <h3 align="center" font-style="italic">
 	Estrutura Do Projeto
