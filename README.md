@@ -61,3 +61,23 @@ A solução “Meu Garçom” é uma inovação incremental que oferece diversas
 └── vcap-local.template.json (Cloud config)
 ```
 
+<h3 align="center" font-style="italic">
+	Estrutura Do Projeto
+</h3>
+
+# Features:
+
+- [x] Resesta conversa após certo tempo sem receber conversa
+- [x] Controle de fluxo da conversa para não usar comandos sem está na interação correta
+- [x] Ajuda customizada para cada interação
+- [x] Cacheamento do nível da interação
+- [x] Buscar os estabelecimentos alimenticios mais próximos do endereço
+- [x] Geração de qrcode
+- [x] Aplicação back servida em difentes clouds caminhando para uma solução em micro serviço
+- [x] Desenho do BD e do workflow da aplicação  
+
+# TODO:
+
+- [ ] Servir cardápios
+- [ ] Relação de consulta ao banco na interação com chatbot
+- [ ] Testes e integração CI/CD
